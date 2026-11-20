@@ -2,9 +2,66 @@
 
 # ChatBox
 
-A real-time messaging PWA — 1-to-1 chats, groups, voice calls, and 13 playable in-chat games — in a single HTML file.
+A real-time messaging PWA that brings together the best of WhatsApp, Messenger, Instagram and Snapchat — and adds what none of them have: 13 games inside your chats, Watch Together, and group games you can spectate live.
 
 **Live demo:** https://chatbox-41j.pages.dev
+
+## Why ChatBox?
+
+Most chat apps do one thing: messages. ChatBox is built around a different idea — a chat app should be the place where you talk, call, play and watch together, without ever leaving the conversation.
+
+It takes the messaging ideas people already love — WhatsApp's voice calls, voice notes and disappearing messages; Messenger's reactions, replies and in-chat games; Instagram's stories; Snapchat's view-once photos — and puts them in one app. Then it adds the things the big apps don't have.
+
+## What makes ChatBox different
+
+- **13 games inside your chats.** Chess, Ludo, Uno, Carrom, Quiz and more — play against real people or against offline bots. The bots always try to win and never cheat; they are beatable only through their per-match form, never through mercy.
+- **Watch Together.** Watch any video link together with a friend — play, pause and seek stay in exact sync on both sides.
+- **Group games with live spectating.** Challenge a group member or throw an open challenge; anyone else in the group can watch the match live.
+- **Message yourself, play offline.** A self-chat with bot opponents for Uno and Ludo that works fully offline — no connection needed.
+- **Everything in one HTML file.** The whole app — UI, games, calls, realtime — ships as a single `index.html`. No build step, no framework.
+- **Engineered for the free tier.** Realtime-first with a bounded polling fallback, so the app stays fast and quiet on Supabase's free plan instead of hammering it.
+
+## Features
+
+### Messaging
+- 1-to-1 chats and group chats with replies, reactions, message edits, unsend, forwards, pins and starred messages
+- @mentions in groups, message search, per-chat wallpaper, themes and font size
+- Read receipts with blue ticks, last seen, typing indicators and online presence
+- Message yourself — a personal self-chat for notes, reminders and bot games
+
+### Voice calls
+- 1-to-1 voice calls (WebRTC) and group audio calls (Cloudflare Realtime SFU)
+- Push notifications for incoming calls and messages when the app is closed
+- Call history and missed-call notifications
+
+### Groups & communities
+- Groups with admins, member management, group info, polls and shared pins
+- Communities that bundle related groups together
+- Group polls with live results and a "who voted" view
+
+### Games
+Play inside any 1-to-1 or group chat — against real people or offline bots:
+
+**Chess · Ludo · Uno · Carrom · Quiz · Snakes & Ladders · Tic Tac Toe · Rock Paper Scissors · Checkers · Connect 4 · Memory Match · Truth or Dare**
+
+- Group games: directed and open challenges, 10-minute invite expiry, 15-minute no-presence auto-end, max 3 pending invites per group, live spectating for other members
+- Solo games: play Uno and Ludo against 3 bots in your self-chat, fully offline
+- Game results are posted to the chat as system messages
+
+### Watch Together
+- Watch any web video link together — play, pause and seek sync exactly on both sides
+- The minimised player keeps playing with sound; if the other person goes offline, sync pauses and your video keeps playing
+
+### Media & privacy
+- Photos, videos, documents, audio and voice notes
+- Stories, view-once photos and videos, and disappearing messages with a per-chat timer
+- Hide messages on this device, per-chat mute, and a notification centre
+- Birthday reminders and chat streaks
+
+### Reliability & offline
+- Offline message queue — messages sent without a connection go out when you are back online
+- Cached first paint — the inbox renders instantly from cache, then syncs live
+- Installable PWA with a service worker; updates apply after a full restart or via the Update button
 
 ## Tech stack
 
@@ -12,14 +69,6 @@ A real-time messaging PWA — 1-to-1 chats, groups, voice calls, and 13 playable
 - **Backend:** Supabase — Auth, Postgres, Realtime, Storage
 - **Hosting:** Cloudflare Pages
 - **Calls:** WebRTC (1-to-1) + Cloudflare Realtime SFU (group audio)
-
-## Features
-
-- 1-to-1 chats and groups with replies, reactions, edits, unsend, forwards, pins, stars
-- Voice calls (1-to-1) and audio group calls, with push notifications when the app is closed
-- 13 in-chat games (Chess, Ludo, Uno, Quiz, Carrom, …) — real players and offline bots
-- Media, voice notes, view-once, disappearing messages, stories, polls, mentions
-- Offline queue, cached first paint, installable PWA with a service worker
 
 ## Architecture
 
